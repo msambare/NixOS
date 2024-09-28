@@ -28,14 +28,7 @@
         default_browser = "brave";
 
         specialArgs = {
-          inherit system;
-          inherit username;
-          inherit full_name;
-          inherit timezone;
-          inherit locale;
           inherit terminals;
-          inherit keyring;
-          inherit window_manager;
           inherit browsers;
           inherit default_browser;
           inherit utilities;
