@@ -1,6 +1,11 @@
-{ lib, config, username, ... }: {
+{ lib, config, username, ... }: 
 
-  lib.mkIf config.alacritty.enable {
+let
+  cfg = config.alacritty;
+
+in
+
+  lib.mkIf cfg.enable {
     programs.alacritty.settings = {
         font = {
           size = 12;
@@ -13,5 +18,4 @@
           };
         };
       };
-  };
-}
+  }
