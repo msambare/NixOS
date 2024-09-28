@@ -1,8 +1,7 @@
 { lib, config, username, ... }: {
 
-  config = lib.mkIf config.alacritty.enable {
-    home-manager.users.${username}.programs.alacritty = {
-      settings = {
+  lib.mkIf config.alacritty.enable {
+    programs.alacritty.settings = {
         font = {
           size = 12;
           family = "FiraCode";
@@ -14,6 +13,5 @@
           };
         };
       };
-    };
   };
 }
