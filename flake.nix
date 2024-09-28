@@ -31,7 +31,6 @@
           inherit terminals;
           inherit browsers;
           inherit default_browser;
-          inherit utilities;
         };
       in
         nixpkgs.lib.nixosSystem {
