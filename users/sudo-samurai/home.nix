@@ -3,6 +3,7 @@
   imports = [
 
     ../base_user.nix
+    ./home-module-config
 
   ];
 
