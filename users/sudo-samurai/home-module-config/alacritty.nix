@@ -1,4 +1,5 @@
-{ pkgs, lib, config, username, ... }: {
+{ pkgs, ... }: {
+  # custom config for alacritty
   programs.alacritty = {
     enable = true;
     settings = {
@@ -14,4 +15,5 @@
       };
     };
   };
+
 }
