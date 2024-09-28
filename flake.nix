@@ -24,8 +24,8 @@
     nixosConfigurations = {
       nixie = let
         system = "x86_64-linux";
-        username = "ms-nixos";
-        full_name = "Manas Sambare";
+        username = "sudo-samurai";
+        full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
         locale = "en_IN";
         terminals = [ "alacritty" "kitty" ];
