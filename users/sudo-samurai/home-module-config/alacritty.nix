@@ -1,13 +1,7 @@
 { lib, config, username, ... }: {
 
-    options = {
-        alacritty.enable = lib.mkEnableOption "enables alacritty config";
-    };
-
   config = lib.mkIf config.alacritty.enable {
-    # home-manager.users.${username}.programs.alacritty = {
-    programs.alacritty = {
-      enable = true;
+    home-manager.users.${username}.programs.alacritty = {
       settings = {
         font = {
           size = 12;
