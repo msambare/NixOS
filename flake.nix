@@ -23,11 +23,21 @@
   
     nixosConfigurations = {
       nixie = let
+        system = "x86_64-linux";
+        username = "ms-nixos";
+        full_name = "Manas Sambare";
+        timezone = "Asia/Kolkata";
+        locale = "en_IN";
         terminals = [ "alacritty" "kitty" ];
         browsers = [ "brave" "firefox" ];
         default_browser = "brave";
 
         specialArgs = {
+          inherit system;
+          inherit username;
+          inherit full_name;
+          inherit timezone;
+          inherit locale;
           inherit terminals;
           inherit browsers;
           inherit default_browser;
