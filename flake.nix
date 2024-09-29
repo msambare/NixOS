@@ -31,6 +31,7 @@
         browsers = [ "vivaldi" "firefox" "brave" "chromium" "tor-browser" ];
         terminals = [ "alacritty" "kitty" ];
         api_clients = [ "insomnia" "postman"];
+        archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
         default_browser = "brave";
 
         specialArgs = {
@@ -42,6 +43,7 @@
           inherit terminals;
           inherit browsers;
           inherit api_clients;
+          inherit archives;
           inherit default_browser;
         };
       in
