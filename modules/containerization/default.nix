@@ -1,7 +1,7 @@
 { pkgs, lib, containerization, ... }:
 let
   functions = import ../functions.nix { inherit pkgs lib; };
-  containerization_options = [ "docker-compose" "lxc" "lxcfs" ];
+  containerization_options = [ "docker-compose" ];
 in
 functions.makeModuleConfig {
   options = containerization_options;

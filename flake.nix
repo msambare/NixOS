@@ -36,7 +36,7 @@
         backup = [ "borgbackup" "duplicity" "restic" "vorta" ];
         cloud_programs = [ "awscli2" "insync" "rclone" ];
         command_line_programs = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
-        containerization = [ "docker-compose" "lxc" "lxcfs" ];
+        containerization = [ "docker-compose" ];
         default_browser = "brave";
 
         specialArgs = {
