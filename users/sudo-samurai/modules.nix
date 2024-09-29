@@ -7,6 +7,7 @@
     ../../modules/archive
     ../../modules/audio
     ../../modules/backup
+    ../../modules/cloud_program
   ];
 
 }

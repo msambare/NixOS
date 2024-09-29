@@ -34,6 +34,7 @@
         archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
         audio = [ "audacity" ];
         backup = [ "borgbackup" "duplicity" "restic" "vorta" ];
+        cloud_programs = [ "awscli" "awscli2" "dropbox-cli" "rclone" ];
         default_browser = "brave";
 
         specialArgs = {
@@ -48,6 +49,7 @@
           inherit archives;
           inherit audio;
           inherit backup;
+          inherit cloud_programs;
           inherit default_browser;
         };
       in
