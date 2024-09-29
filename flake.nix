@@ -33,6 +33,7 @@
         api_clients = [ "insomnia" "postman"];
         archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
         audio = [ "audacity" ];
+        backup = [ "borgbackup" "duplicity" "restic" "vorta" ];
         default_browser = "brave";
 
         specialArgs = {
@@ -46,6 +47,7 @@
           inherit api_clients;
           inherit archives;
           inherit audio;
+          inherit backup;
           inherit default_browser;
         };
       in

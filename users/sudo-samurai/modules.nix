@@ -6,6 +6,7 @@
     ../../modules/api_client
     ../../modules/archive
     ../../modules/audio
+    ../../modules/backup
   ];
 
 }
