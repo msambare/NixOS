@@ -8,5 +8,11 @@
         home-manager.users.${username} = {pkgs, ... }: {
             home.packages = with pkgs; [ docker_27 ];
         };
+
+    services.docker = {
+    enable = true;  # Enable Docker as a user service
+    #package = pkgs.docker_27;  # Ensure you're using Docker 27
+    useRootless = true;  # Optional: Use rootless Docker (more secure)
+  };    
     };
 }
