@@ -34,7 +34,7 @@
         archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
         audio = [ "audacity" ];
         backup = [ "borgbackup" "duplicity" "restic" "vorta" ];
-        cloud_programs = [ "awscli2" "dropbox-cli" "rclone" ];
+        cloud_programs = [ "awscli2" "dropbox" "rclone" ];
         command_line_programs = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
         default_browser = "brave";
 
