@@ -30,6 +30,7 @@
         locale = "en_IN";
         browsers = [ "vivaldi" "firefox" "brave" "chromium" "tor-browser" ];
         terminals = [ "alacritty" "kitty" ];
+        api_clients = [ "insomnia" "postman"];
         default_browser = "brave";
 
         specialArgs = {
@@ -40,6 +41,7 @@
           inherit locale;
           inherit terminals;
           inherit browsers;
+          inherit api_clients;
           inherit default_browser;
         };
       in
