@@ -32,7 +32,7 @@
         terminals = [ "alacritty" "kitty" ];
         api_clients = [ "insomnia" "postman"];
         archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
-        audios = [ "audacity" ];
+        audio = [ "audacity" ];
         default_browser = "brave";
 
         specialArgs = {
@@ -45,7 +45,7 @@
           inherit browsers;
           inherit api_clients;
           inherit archives;
-          inherit audios;
+          inherit audio;
           inherit default_browser;
         };
       in
