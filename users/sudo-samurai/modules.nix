@@ -10,6 +10,9 @@
     ../../modules/cloud_program
     ../../modules/command_line_programs
     ../../modules/containerization
+    ../../modules/development
+    ../../modules/disk_tools
+    ../../modules/editora
   ];
 
 }
