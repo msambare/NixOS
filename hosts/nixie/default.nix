@@ -108,7 +108,7 @@
   ];
 
   # enable docker for sudo-samurai user
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   virtualisation.docker.rootless = {
     enable = true;
