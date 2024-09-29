@@ -13,7 +13,7 @@
     ../../modules/development
     ../../modules/disk_tools
     ../../modules/editors
-    # ../../modules/firewall_security
+    ../../modules/firewall_security
     ../../modules/fonts
   ];
 
