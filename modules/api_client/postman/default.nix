@@ -4,7 +4,7 @@
         postman.enable = lib.mkEnableOption "enables postman";
     };
 
-    config = lib.mkIf config.postman.enable  {
+    config = lib.mkIf config.postman.enable {
         home-manager.users.${username} = {pkgs, ... }: {
             home.packages = with pkgs; [ postman ];
         };

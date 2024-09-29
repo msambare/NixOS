@@ -1,4 +1,4 @@
-{ pkgs, lib, api_clients, ... }:
+{ pkgs, lib, terminals, ... }:
 let
   functions = import ../functions.nix { inherit pkgs lib; };
   api_client_options = [ "insomnia" "postman" ];

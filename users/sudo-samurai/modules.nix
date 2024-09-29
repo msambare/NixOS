@@ -3,7 +3,7 @@
   imports = [
     ../../modules/browser
     ../../modules/terminal
-    ../../modules/networking_tools
+    ../../modules/api_client
   ];
 
 }
