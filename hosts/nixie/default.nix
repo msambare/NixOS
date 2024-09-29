@@ -107,9 +107,10 @@
     git
   ];
 
-  # enable docker for sudo-samurai user
+  # install and enable docker
   virtualisation.docker.enable = true;
 
+  # run docker in rootless mode. Note that you cannot bind ports bwlow 1024
   virtualisation.docker.rootless = {
     enable = true;
     setSocketVariable = true;
