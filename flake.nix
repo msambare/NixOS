@@ -51,7 +51,7 @@
           inherit archives;
           inherit audio;
           inherit backup;
-          inherit cloud_programs;
+          #inherit cloud_programs;
           inherit command_line_programs;
           inherit containerization;
           inherit default_browser;
