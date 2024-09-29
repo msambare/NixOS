@@ -30,7 +30,6 @@
         locale = "en_IN";
         browsers = [ "vivaldi" "firefox" "brave" "chromium" "tor-browser" ];
         terminals = [ "alacritty" "kitty" ];
-
         default_browser = "brave";
 
         specialArgs = {
