@@ -82,7 +82,7 @@
   users.users.sudo-samurai = {
     isNormalUser = true;
     description = "Mangesh Sambare";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -109,7 +109,6 @@
 
   # enable docker for sudo-samurai user
   virtualisation.docker.enable = true;
-  users.users.sudo-samurai.extraGroups = [ "docker" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
