@@ -35,6 +35,7 @@
         audio = [ "audacity" ];
         backup = [ "borgbackup" "duplicity" "restic" "vorta" ];
         cloud_programs = [ "awscli2" "dropbox-cli" "rclone" ];
+        command_line_programs = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
         default_browser = "brave";
 
         specialArgs = {
