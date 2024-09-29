@@ -3,7 +3,7 @@
   imports = [
     ../../modules/browser
     ../../modules/terminal
-    ../../modules/api_client
+    ../../modules/command_line_tool
   ];
 
 }
