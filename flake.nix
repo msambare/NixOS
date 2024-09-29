@@ -28,7 +28,7 @@
         full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
         locale = "en_IN";
-        api_clients = [ "insomnia" "postman" ];
+        api_client = [ "insomnia" "postman" ];
         archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
         audios = [ "audacity" ];
         backups = [ "borgbackup" "duplicity" "restic" "vorta" ];
@@ -47,6 +47,12 @@
           inherit locale;
           inherit terminals;
           inherit browsers;
+          inherit api_client;
+          inherit archives;
+          inherit audios;
+          inherit backups;
+          inherit cloud_tools;
+          inherit command_line_tools;
           inherit default_browser;
         };
       in
