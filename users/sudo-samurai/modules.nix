@@ -5,6 +5,7 @@
     ../../modules/terminal
     ../../modules/api_client
     ../../modules/archive
+    ../../modules/audio
   ];
 
 }
