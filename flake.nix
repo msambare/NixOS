@@ -37,7 +37,7 @@
         cloud_programs = [ "awscli2" "insync" "rclone" ];
         command_line_programs = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
         containerization = [ "docker-compose" ];
-        development = [ "jetbrains.pycharm-community-src" "python312" "staruml" "sublime-merge" ];
+        development = [ "python312" "staruml" "sublime-merge" ];
         disk_tools = [ "fio" "gparted" "hdparm" "impression" "iotop" "smartmontools" "sysstat" "usbimager" "ventoy-full" ];
         editors = [ "sublime4" "typora" "vimPlugins.nvchad" "vscode-with-extensions" ];
 
