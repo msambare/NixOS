@@ -133,13 +133,13 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+}
 
+{ config, pkgs, ... }: {
   # Enable Docker in NixOS
   services.docker = {
     enable = true;                     # Enables the Docker service
     package = pkgs.docker_27;          # Specifies Docker version 27 (optional)
     extraOptions = "--experimental";   # Optional: Add any extra options you want Docker to run with
   };
-
 }
-
