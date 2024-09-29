@@ -28,8 +28,15 @@
         full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
         locale = "en_IN";
+        api_clients = [ "insomnia" "postman" ];
+        archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
+        audios = [ "audacity" ];
+        backups = [ "borgbackup" "duplicity" "restic" "vorta" ];
+        browsers = [ "vivaldi" "firefox" "brave" "chromium" "tor-browser" ];
+        cloud_tools = [ "awscli" "awscli2" "dropbox-cli" "rclone" ];
+        command_line_tools = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
         terminals = [ "alacritty" "kitty" ];
-        browsers = [ "brave" "firefox" ];
+
         default_browser = "brave";
 
         specialArgs = {
