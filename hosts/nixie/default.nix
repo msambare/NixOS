@@ -115,11 +115,6 @@
     setSocketVariable = true;
   };
 
-  # allow insecure packages - needed for some program in development group
-  nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1w"
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
