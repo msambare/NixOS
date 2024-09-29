@@ -51,6 +51,7 @@
           inherit audio;
           inherit backup;
           inherit cloud_programs;
+          inherit command_line_programs;
           inherit default_browser;
         };
       in
