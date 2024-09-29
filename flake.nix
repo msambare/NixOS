@@ -39,7 +39,7 @@
         containerization = [ "docker-compose" ];
         development = [ "python312" "staruml" "sublime-merge" ];
         disk_tools = [ "fio" "gparted" "hdparm" "impression" "iotop" "smartmontools" "sysstat" "usbimager" "ventoy-full" ];
-        editors = [ "sublime4" "typora" "vscode-with-extensions" "neovim" "vimPlugins.nvchad-ui" ];
+        editors = [ "sublime4" "typora" "vscode-with-extensions" "neovim" "vimPlugins-nvchad-ui" ];
 
         default_browser = "brave";
 
