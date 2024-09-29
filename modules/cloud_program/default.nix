@@ -1,7 +1,7 @@
 { pkgs, lib, cloud_programs, ... }:
 let
   functions = import ../functions.nix { inherit pkgs lib; };
-  cloud_program_options = [ "awscli2" "dropbox-cli" "rclone" ];
+  cloud_program_options = [ "awscli2" "dropbox" "rclone" ];
 in
 functions.makeModuleConfig {
   options = cloud_program_options;
