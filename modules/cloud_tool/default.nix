@@ -1,4 +1,4 @@
-{ pkgs, lib, cloud_toolss, ... }:
+{ pkgs, lib, cloud_tools, ... }:
 let
   functions = import ../functions.nix { inherit pkgs lib; };
   cloud_tool_options = [ "awscli" "awscli2" "dropbox-cli" "rclone" ];

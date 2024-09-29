@@ -1,4 +1,4 @@
-{ pkgs, lib, archivess, ... }:
+{ pkgs, lib, archives, ... }:
 let
   functions = import ../functions.nix { inherit pkgs lib; };
   archive_options = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];

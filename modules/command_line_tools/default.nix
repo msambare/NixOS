@@ -1,4 +1,4 @@
-{ pkgs, lib, command_line_toolss, ... }:
+{ pkgs, lib, command_line_tools, ... }:
 let
   functions = import ../functions.nix { inherit pkgs lib; };
   command_line_tool_options = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
