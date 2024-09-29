@@ -9,6 +9,7 @@
     ../../modules/backup
     ../../modules/cloud_program
     ../../modules/command_line_programs
+    ../../modules/containerization
   ];
 
 }

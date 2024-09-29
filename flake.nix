@@ -36,6 +36,7 @@
         backup = [ "borgbackup" "duplicity" "restic" "vorta" ];
         cloud_programs = [ "awscli2" "insync" "rclone" ];
         command_line_programs = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
+        containerization = [ "docker-compose" "docker_27" "lxc" "lxcfs" ];
         default_browser = "brave";
 
         specialArgs = {
@@ -52,6 +53,7 @@
           inherit backup;
           inherit cloud_programs;
           inherit command_line_programs;
+          inherit containerization;
           inherit default_browser;
         };
       in
