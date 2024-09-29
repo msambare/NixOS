@@ -109,7 +109,7 @@
 
   # enable docker for sudo-samurai user
   virtualisation.docker.enable = true;
-  users.users.sudo-samurai.extraGroups = [ "docker" ];
+  # users.users.sudo-samurai.extraGroups = [ "docker" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
