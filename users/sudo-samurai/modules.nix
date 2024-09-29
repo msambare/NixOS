@@ -12,7 +12,7 @@
     ../../modules/containerization
     ../../modules/development
     ../../modules/disk_tools
-    ../../modules/editora
+    ../../modules/editors
   ];
 
 }
