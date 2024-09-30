@@ -17,6 +17,7 @@
     ../../modules/fonts
     ../../modules/graphics
     ../../modules/k8s
+    ../../modules/load_test
   ];
 
 }

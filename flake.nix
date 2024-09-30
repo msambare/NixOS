@@ -44,6 +44,7 @@
         fonts = [ "fira-code" "nerdfonts" ];
         graphics = [ "gimp" "inkscape" ];
         k8s = [ "kubectl" "helm" ];
+        load_test = [ "jmeter" "siege" ];
 
         default_browser = "brave";
 
@@ -69,6 +70,7 @@
           inherit fonts;
           inherit graphics;
           inherit k8s;
+          inherit load_test;
           inherit default_browser;
         };
       in
