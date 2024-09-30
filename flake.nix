@@ -42,7 +42,7 @@
         editors = [ "sublime4" "typora" "vscode-with-extensions" "neovim" "vimPlugins-nvchad-ui" ];
         firewall_security = [ "chkrootkit" "clamav" "fail2ban" ];
         fonts = [ "fira-code" "nerdfonts" ];
-        graohics = [ "gimp" "inkscape" ];
+        graphics = [ "gimp" "inkscape" ];
 
         default_browser = "brave";
 
