@@ -58,6 +58,7 @@
         system_monitoring = [ "btop" "glances" "htop" "lsof" "nvtop" "virt-top" ];
         system_tools = [ "ethtool" "lm_sensors" "pciutils" "usbutils" ];
         terminal_multiplexers = [ "tmux" "zellij" ];
+        torrent_clients = [ "deluge" "stremio" ];
 
         default_browser = "brave";
 
@@ -97,6 +98,7 @@
           inherit system_monitoring;
           inherit system_tools;
           inherit terminal_multiplexers;
+          inherit torrent_clients;
           inherit default_browser;
         };
       in

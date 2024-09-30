@@ -31,6 +31,7 @@
     ../../modules/system_monitoring
     ../../modules/system_tools
     ../../modules/terminal_multiplexers
+    ../../modules/torrent_clients
   ];
 
 }
