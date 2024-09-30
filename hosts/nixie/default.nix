@@ -119,6 +119,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11" # logseq
     "openssl-1.1.1w" # sublime4
+    "python-2.7.18.8" # xtrlock-pam
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
