@@ -1,10 +1,10 @@
 { pkgs, lib, config, username, ... }: {
 
     options = {
-        onepassword-gui.enable = lib.mkEnableOption "enables 1password-gui";
+        one_password.enable = lib.mkEnableOption "enables one_password";
     };
 
-    config = lib.mkIf config.onepassword-gui.enable  {
+    config = lib.mkIf config.one_password.enable  {
         home-manager.users.${username} = {pkgs, ... }: {
             home.packages = with pkgs; [ _1password-gui ];
         };
