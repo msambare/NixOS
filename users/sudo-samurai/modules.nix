@@ -33,6 +33,7 @@
     ../../modules/terminal_multiplexers
     ../../modules/torrent_clients
     ../../modules/unified_communication
+    ../../modules/utility
   ];
 
 }

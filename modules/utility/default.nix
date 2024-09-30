@@ -1,10 +1,10 @@
-{ pkgs, lib, utilities, ... }:
+{ pkgs, lib, utility, ... }:
 let
   functions = import ../functions.nix { inherit pkgs lib; };
-  utilities_options = [ ];
+  utility_options = [ "copyq" "flameshot" "rambox" "ulauncher" ];
 in
 functions.makeModuleConfig {
-  options = utilities_options;
-  current = utilities;
+  options = utility_options;
+  current = utility;
   module_name = "utility";
 }

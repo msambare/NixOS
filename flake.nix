@@ -60,6 +60,7 @@
         terminal_multiplexers = [ "tmux" "zellij" ];
         torrent_clients = [ "deluge" "stremio" ];
         unified_communication = [ "zoom-us" ];
+        utility = [ "copyq" "flameshot" "rambox" "ulauncher" ];
 
         default_browser = "brave";
 
@@ -101,6 +102,7 @@
           inherit terminal_multiplexers;
           inherit torrent_clients;
           inherit unified_communication;
+          inherit utility;
           inherit default_browser;
         };
       in
