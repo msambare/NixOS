@@ -36,7 +36,7 @@
     ../../modules/utility
     ../../modules/video
     ../../modules/whiteboarding
-    ../../moduled/x_programs
+    ../../modules/x_programs
   ];
 
 }
