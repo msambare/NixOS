@@ -61,6 +61,7 @@
         torrent_clients = [ "deluge" "stremio" ];
         unified_communication = [ "zoom-us" ];
         utility = [ "copyq" "flameshot" "rambox" "ulauncher" ];
+        video = [ "ffmpeg_7-full" "kdenlive" "obs-studio" "vlc" ];
 
         default_browser = "brave";
 
@@ -103,6 +104,7 @@
           inherit torrent_clients;
           inherit unified_communication;
           inherit utility;
+          inherit video;
           inherit default_browser;
         };
       in

@@ -34,6 +34,7 @@
     ../../modules/torrent_clients
     ../../modules/unified_communication
     ../../modules/utility
+    ../../modules/video
   ];
 
 }
