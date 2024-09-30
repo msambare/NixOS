@@ -41,7 +41,7 @@
         disk_tools = [ "fio" "gparted" "hdparm" "impression" "iotop" "smartmontools" "sysstat" "usbimager" "ventoy-full" ];
         editors = [ "sublime4" "typora" "vscode-with-extensions" "neovim" "vimPlugins-nvchad-ui" ];
         firewall_security = [ "chkrootkit" "clamav" "fail2ban" ];
-        fonts = [ "fira-code" "nerdfonts" "anonymousPro" "input-fonts" "mononoki" "source-code-pro" ];
+        fonts = [ "fira-code" "nerdfonts" "anonymousPro" "mononoki" "source-code-pro" ];
         graphics = [ "gimp" "inkscape" ];
         k8s = [ "kubectl" "helm" ];
         load_test = [ "jmeter" "siege" ];
