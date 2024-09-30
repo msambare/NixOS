@@ -51,7 +51,7 @@
         password_manager = [ "one_password" ];
         personal_knowledge_management = [ "logseq" "notion-app-enhanced" ];
         photo_tools = [ "darktable" "rawtherapee" ];
-        privacy = [ "kleopatra" ];
+        privacy = [ "kleopatra" "age" "rage" ];
         productivity = [ "atuin" "thefuck" "zoxide" "fd" ];
         remote_assistance = [ "anydesk" ];
         remote_servers = [ "filezilla" "termius" ];
