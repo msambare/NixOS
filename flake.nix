@@ -41,7 +41,7 @@
         disk_tools = [ "fio" "gparted" "hdparm" "impression" "iotop" "smartmontools" "sysstat" "usbimager" "ventoy-full" ];
         editors = [ "sublime4" "typora" "vscode-with-extensions" "neovim" "vimPlugins-nvchad-ui" ];
         firewall_security = [ "chkrootkit" "clamav" "fail2ban" ];
-        fonts = [ "fira-code" "nerdfonts" ];
+        fonts = [ "fira-code" "nerdfonts" "anonymousPro" "input-fonts" "mononoki" "source-code-pro" ];
         graphics = [ "gimp" "inkscape" ];
         k8s = [ "kubectl" "helm" ];
         load_test = [ "jmeter" "siege" ];
@@ -60,7 +60,7 @@
         terminal_multiplexers = [ "tmux" "zellij" ];
         torrent_clients = [ "deluge" "stremio" ];
         unified_communication = [ "zoom-us" ];
-        utility = [ "copyq" "flameshot" "rambox" "ulauncher" ];
+        utility = [ "copyq" "flameshot" "rambox" "ulauncher" "stow" ];
         video = [ "ffmpeg_7-full" "kdenlive" "obs-studio" "vlc" ];
         whiteboarding = [ "lorien" ];
         x_programs = [ "xclip" "xtrlock-pam" ];
