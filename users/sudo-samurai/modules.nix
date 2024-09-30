@@ -19,6 +19,7 @@
     ../../modules/k8s
     ../../modules/load_test
     ../../modules/music
+    ../../modules/networking_tools
   ];
 
 }

@@ -46,6 +46,7 @@
         k8s = [ "kubectl" "helm" ];
         load_test = [ "jmeter" "siege" ];
         music = [ "spotify" ];
+        networking_tools = [ "dig" "dogdns" "doggo" "drill" "iftop" "inetutils" "iputils" "mtr" "netcat-gnu" "nettools" "nmap" "tcpdump" ];
 
         default_browser = "brave";
 
@@ -73,6 +74,7 @@
           inherit k8s;
           inherit load_test;
           inherit music;
+          inherit networking_tools;
           inherit default_browser;
         };
       in
