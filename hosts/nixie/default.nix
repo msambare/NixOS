@@ -115,9 +115,10 @@
     setSocketVariable = true;
   };
 
-  # allowed insecre package for installation of logseq
+  # allowed insecre package
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-27.3.11"
+    "electron-27.3.11" # logseq
+    "openssl-1.1.1w" # sublime4
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
