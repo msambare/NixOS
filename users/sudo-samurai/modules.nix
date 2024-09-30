@@ -16,6 +16,7 @@
     ../../modules/firewall_security
     ../../modules/fonts
     ../../modules/graphics
+    ../../modules/k8s
   ];
 
 }

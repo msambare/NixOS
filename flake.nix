@@ -43,6 +43,7 @@
         firewall_security = [ "chkrootkit" "clamav" "fail2ban" ];
         fonts = [ "fira-code" "nerdfonts" ];
         graphics = [ "gimp" "inkscape" ];
+        k8s = [ "kubectl" "helm" ];
 
         default_browser = "brave";
 
@@ -67,6 +68,7 @@
           inherit firewall_security;
           inherit fonts;
           inherit graphics;
+          inherit k8s;
           inherit default_browser;
         };
       in
