@@ -52,6 +52,7 @@
         personal_knowledge_management = [ "logseq" "notion-app-enhanced" ];
         photo_tools = [ "darktable" "rawtherapee" ];
         privacy = [ "kleopatra" ];
+        productivity = [ "atuin" "thefuck" "zoxide" "fd" ];
 
         default_browser = "brave";
 
@@ -85,6 +86,7 @@
           inherit personal_knowledge_management;
           inherit photo_tools;
           inherit privacy;
+          inherit productivity;
           inherit default_browser;
         };
       in
