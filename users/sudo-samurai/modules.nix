@@ -18,6 +18,7 @@
     ../../modules/graphics
     ../../modules/k8s
     ../../modules/load_test
+    ../../modules/music
   ];
 
 }

@@ -45,6 +45,7 @@
         graphics = [ "gimp" "inkscape" ];
         k8s = [ "kubectl" "helm" ];
         load_test = [ "jmeter" "siege" ];
+        music = [ "spotify" ];
 
         default_browser = "brave";
 
@@ -71,6 +72,7 @@
           inherit graphics;
           inherit k8s;
           inherit load_test;
+          inherit music;
           inherit default_browser;
         };
       in
