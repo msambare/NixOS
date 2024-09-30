@@ -48,6 +48,7 @@
         music = [ "spotify" ];
         networking_tools = [ "dig" "dogdns" "doggo" "drill" "iftop" "inetutils" "iputils" "mtr" "netcat-gnu" "nettools" "nmap" "tcpdump" ];
         office = [ "libreoffice-fresh" "onlyoffice-bin_latest" ];
+        password_manager = [ "_1password-gui" ];
 
         default_browser = "brave";
 
@@ -77,6 +78,7 @@
           inherit music;
           inherit networking_tools;
           inherit office;
+          inherit password_manager;
           inherit default_browser;
         };
       in

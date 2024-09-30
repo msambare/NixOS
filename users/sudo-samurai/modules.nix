@@ -21,6 +21,7 @@
     ../../modules/music
     ../../modules/networking_tools
     ../../modules/office
+    ../../modules/password_manager
   ];
 
 }
