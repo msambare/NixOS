@@ -35,6 +35,7 @@
     ../../modules/unified_communication
     ../../modules/utility
     ../../modules/video
+    ../../modules/whiteboarding
   ];
 
 }

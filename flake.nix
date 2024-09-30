@@ -62,6 +62,7 @@
         unified_communication = [ "zoom-us" ];
         utility = [ "copyq" "flameshot" "rambox" "ulauncher" ];
         video = [ "ffmpeg_7-full" "kdenlive" "obs-studio" "vlc" ];
+        whiteboarding = [ "lorien" ];
 
         default_browser = "brave";
 
@@ -105,6 +106,7 @@
           inherit unified_communication;
           inherit utility;
           inherit video;
+          inherit whiteboarding;
           inherit default_browser;
         };
       in
