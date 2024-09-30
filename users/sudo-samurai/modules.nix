@@ -15,6 +15,7 @@
     ../../modules/editors
     ../../modules/firewall_security
     ../../modules/fonts
+    ../../modules/graphics
   ];
 
 }
