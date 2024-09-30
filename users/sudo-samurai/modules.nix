@@ -32,6 +32,7 @@
     ../../modules/system_tools
     ../../modules/terminal_multiplexers
     ../../modules/torrent_clients
+    ../../modules/unified_communication
   ];
 
 }

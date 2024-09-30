@@ -59,6 +59,7 @@
         system_tools = [ "ethtool" "lm_sensors" "pciutils" "usbutils" ];
         terminal_multiplexers = [ "tmux" "zellij" ];
         torrent_clients = [ "deluge" "stremio" ];
+        unified_communication = [ "zoom-us" ];
 
         default_browser = "brave";
 
@@ -99,6 +100,7 @@
           inherit system_tools;
           inherit terminal_multiplexers;
           inherit torrent_clients;
+          inherit unified_communication;
           inherit default_browser;
         };
       in
