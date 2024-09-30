@@ -54,6 +54,7 @@
         privacy = [ "kleopatra" ];
         productivity = [ "atuin" "thefuck" "zoxide" "fd" ];
         remote_assistance = [ "anydesk" ];
+        remote_servers = [ "filezilla" "termius" ];
 
         default_browser = "brave";
 
@@ -89,6 +90,7 @@
           inherit privacy;
           inherit productivity;
           inherit remote_assistance;
+          inherit remote_servers;
           inherit default_browser;
         };
       in

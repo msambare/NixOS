@@ -27,6 +27,7 @@
     ../../modules/privacy
     ../../modules/productivity
     ../../modules/remote_assistance
+    ../../modules/remote_server
   ];
 
 }
