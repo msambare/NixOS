@@ -22,6 +22,7 @@
     ../../modules/networking_tools
     ../../modules/office
     ../../modules/password_manager
+    ../../modules/personal_knowledge_management
   ];
 
 }
