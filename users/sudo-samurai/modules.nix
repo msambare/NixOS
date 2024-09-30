@@ -20,6 +20,7 @@
     ../../modules/load_test
     ../../modules/music
     ../../modules/networking_tools
+    ../../modules/office
   ];
 
 }

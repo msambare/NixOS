@@ -47,6 +47,7 @@
         load_test = [ "jmeter" "siege" ];
         music = [ "spotify" ];
         networking_tools = [ "dig" "dogdns" "doggo" "drill" "iftop" "inetutils" "iputils" "mtr" "netcat-gnu" "nettools" "nmap" "tcpdump" ];
+        office = [ "libreoffice-fresh" "onlyoffice-bin_latest" ];
 
         default_browser = "brave";
 
@@ -75,6 +76,7 @@
           inherit load_test;
           inherit music;
           inherit networking_tools;
+          inherit office;
           inherit default_browser;
         };
       in
