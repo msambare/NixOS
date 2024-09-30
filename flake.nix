@@ -66,7 +66,7 @@
           inherit editors;
           inherit firewall_security;
           inherit fonts;
-          inherit graohics;
+          inherit graphics;
           inherit default_browser;
         };
       in
