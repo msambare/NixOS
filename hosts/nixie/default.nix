@@ -115,6 +115,11 @@
     setSocketVariable = true;
   };
 
+  # allowed insecre package for installation of logseq
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
