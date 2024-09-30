@@ -63,6 +63,7 @@
         utility = [ "copyq" "flameshot" "rambox" "ulauncher" ];
         video = [ "ffmpeg_7-full" "kdenlive" "obs-studio" "vlc" ];
         whiteboarding = [ "lorien" ];
+        x_programs = [ "xclip" "xtrlock-pam" ];
 
         default_browser = "brave";
 
@@ -107,6 +108,7 @@
           inherit utility;
           inherit video;
           inherit whiteboarding;
+          inherit x_programs;
           inherit default_browser;
         };
       in
