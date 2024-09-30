@@ -53,6 +53,7 @@
         photo_tools = [ "darktable" "rawtherapee" ];
         privacy = [ "kleopatra" ];
         productivity = [ "atuin" "thefuck" "zoxide" "fd" ];
+        remote_assistance = [ "anydesk" ];
 
         default_browser = "brave";
 
@@ -87,6 +88,7 @@
           inherit photo_tools;
           inherit privacy;
           inherit productivity;
+          inherit remote_assistance;
           inherit default_browser;
         };
       in

@@ -25,7 +25,8 @@
     ../../modules/personal_knowledge_management
     ../../modules/photo_tools
     ../../modules/privacy
-    ../../modules/productivity
+    ../../modules/
+    ../../modules/remote_assistance
   ];
 
 }
