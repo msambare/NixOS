@@ -30,6 +30,7 @@
     ../../modules/remote_server
     ../../modules/system_monitoring
     ../../modules/system_tools
+    ../../modules/terminal_multiplexers
   ];
 
 }
