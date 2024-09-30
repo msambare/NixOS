@@ -49,7 +49,7 @@
         networking_tools = [ "dig" "dogdns" "doggo" "drill" "iftop" "inetutils" "iputils" "mtr" "netcat-gnu" "nettools" "nmap" "tcpdump" ];
         office = [ "libreoffice-fresh" "onlyoffice-bin_latest" ];
         password_manager = [ "one_password" ];
-        personal_knowledge_management = [ "logseq" "notion-app-enhanced" ];
+        personal_knowledge_management = [ "logseq" ];
 
         default_browser = "brave";
 
