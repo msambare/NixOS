@@ -56,6 +56,7 @@
         remote_assistance = [ "anydesk" ];
         remote_servers = [ "filezilla" "termius" ];
         system_monitoring = [ "btop" "glances" "htop" "lsof" "nvtop" "virt-top" ];
+        system_tools = [ "ethtool" "lm_sensors" "pciutils" "usbutils" ];
 
         default_browser = "brave";
 
@@ -93,6 +94,7 @@
           inherit remote_assistance;
           inherit remote_servers;
           inherit system_monitoring;
+          inherit system_tools;
           inherit default_browser;
         };
       in
