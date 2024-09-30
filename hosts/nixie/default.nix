@@ -132,6 +132,9 @@
     };
   };
 
+  # allow nested virtualization
+  boot.extraModprobeConfig = "options kvm_intel nested=1";
+
   # allowed insecre package
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11" # logseq
