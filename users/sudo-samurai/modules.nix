@@ -28,6 +28,7 @@
     ../../modules/productivity
     ../../modules/remote_assistance
     ../../modules/remote_server
+    ../../modules/system_monitoring
   ];
 
 }

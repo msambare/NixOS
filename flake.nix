@@ -55,6 +55,7 @@
         productivity = [ "atuin" "thefuck" "zoxide" "fd" ];
         remote_assistance = [ "anydesk" ];
         remote_servers = [ "filezilla" "termius" ];
+        system_monitoring = [ "btop" "glances" "htop" "lsof" "nvtop" "virt-top" ];
 
         default_browser = "brave";
 
@@ -91,6 +92,7 @@
           inherit productivity;
           inherit remote_assistance;
           inherit remote_servers;
+          inherit system_monitoring;
           inherit default_browser;
         };
       in
