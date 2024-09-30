@@ -51,6 +51,7 @@
         password_manager = [ "one_password" ];
         personal_knowledge_management = [ "logseq" "notion-app-enhanced" ];
         photo_tools = [ "darktable" "rawtherapee" ];
+        privacy = [ "kleopatra" ];
 
         default_browser = "brave";
 
@@ -83,6 +84,7 @@
           inherit password_manager;
           inherit personal_knowledge_management;
           inherit photo_tools;
+          inherit privacy;
           inherit default_browser;
         };
       in
