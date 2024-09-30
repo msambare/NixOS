@@ -49,7 +49,8 @@
         networking_tools = [ "dig" "dogdns" "doggo" "drill" "iftop" "inetutils" "iputils" "mtr" "netcat-gnu" "nettools" "nmap" "tcpdump" ];
         office = [ "libreoffice-fresh" "onlyoffice-bin_latest" ];
         password_manager = [ "one_password" ];
-        personal_knowledge_management = [ "logseq" ];
+        personal_knowledge_management = [ "logseq" "notion-app-enhanced" ];
+        photo_tools = [ "darktable" "rawtherapee" ];
 
         default_browser = "brave";
 
@@ -81,6 +82,7 @@
           inherit office;
           inherit password_manager;
           inherit personal_knowledge_management;
+          inherit photo_tools;
           inherit default_browser;
         };
       in

@@ -23,6 +23,7 @@
     ../../modules/office
     ../../modules/password_manager
     ../../modules/personal_knowledge_management
+    ../../modules/photo_tools
   ];
 
 }
