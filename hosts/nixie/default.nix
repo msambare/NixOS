@@ -8,6 +8,12 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./decrypt-secrets.nix
+    ];
+
+  systemd.tmpfiles.rules = 
+    [
+      "d /run/secrets 0700 root root"  # Ensure the /run/secrets directory has the right permissions
     ];
 
   # Bootloader.
@@ -87,6 +93,50 @@
       kdePackages.kate
     #  thunderbird
     ];
+
+    openssh.authorizedKeys.keys = [
+      (builtins.getAttr "publicKey" (builtins.head (builtins.filter (key: key.name == "id_rsa") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys))),
+      (builtins.getAttr "publicKey" (builtins.head (builtins.filter (key: key.name == "id_ed25519") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys)))
+    ];
+
+    # Dynamically place SSH private keys from decrypted secrets
+    extraFiles = {
+      ".ssh/id_rsa" = {
+        source = "/run/secrets/secrets.yaml";
+        content = builtins.getAttr "privateKey" (builtins.head (builtins.filter (key: key.name == "id_rsa") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys));
+        permissions = "0400";
+      };
+      ".ssh/id_ed25519" = {
+        source = "/run/secrets/secrets.yaml";
+        content = builtins.getAttr "privateKey" (builtins.head (builtins.filter (key: key.name == "id_ed25519") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys));
+        permissions = "0400";
+      };
+    };
+  };
+
+  # Reference the dynamically created WiFi password files
+  networking.wireless.networks = {
+    "Dracarys5G" = {
+      pskFile = "/run/secrets/wpa_supplicant_Dracarys5G.conf";
+    };
+    "Dracarys5-1G" = {
+      pskFile = "/run/secrets/wpa_supplicant_Dracarys5-1G.conf";
+    };
+    "Dracarys2-4G" = {
+      pskFile = "/run/secrets/wpa_supplicant_Dracarys2-4G.conf";
+    };
+    "Jio2-4G" = {
+      pskFile = "/run/secrets/wpa_supplicant_Jio2-4G.conf";
+    };
+    "Jio5G" = {
+      pskFile = "/run/secrets/wpa_supplicant_Jio5G.conf";
+    };
+    "BangBang2-4G" = {
+      pskFile = "/run/secrets/wpa_supplicant_BangBang2-4G.conf";
+    };
+    "BangBang5G" = {
+      pskFile = "/run/secrets/wpa_supplicant_BangBang5G.conf";
+    };
   };
 
   # Install firefox.
