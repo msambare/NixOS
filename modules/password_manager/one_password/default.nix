@@ -6,7 +6,7 @@
 
     config = lib.mkIf config.one_password.enable  {
         home-manager.users.${username} = {pkgs, ... }: {
-            home.packages = with pkgs; [ _1password-gui ];
+            home.packages = with pkgs; [ _1password-gui _1password ];
         };
     };
 }
