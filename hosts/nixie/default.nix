@@ -104,6 +104,7 @@
     wget
     curl
     git
+    nix-sops
   ];
 
   # install and enable docker
