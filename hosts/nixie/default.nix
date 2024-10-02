@@ -1,5 +1,10 @@
 { config, pkgs, ... }:
 
+let
+  sops-nix = builtins.fetchTarball {
+    url = "https://github.com/Mic92/sops-nix/archive/master.tar.gz";
+  };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
