@@ -104,7 +104,15 @@
     wget
     curl
     git
+    zsh
+    fish
   ];
+
+  # Enable zsh globally as the default shell
+  programs.zsh.enable = true;
+
+  # Set zsh as the default login shell
+  users.defaultUserShell = pkgs.zsh;
 
   # install and enable docker
   virtualisation.docker.enable = true;
