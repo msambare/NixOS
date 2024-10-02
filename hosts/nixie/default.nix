@@ -83,6 +83,7 @@
     isNormalUser = true;
     description = "Mangesh Sambare";
     extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
+    shell = pkgs.fish;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
