@@ -12,5 +12,13 @@
     userEmail = "mangesh@sambare.in";
   };
 
-  programs.fish.enable = true;
+  #programs.fish.enable = true;
+
+  # Add your custom aliases
+  # programs.fish.aliases = {
+  #   ll = "ls -la";
+  #   gst = "git status";
+  #   .. = "cd ..";
+  # };
+
 }
