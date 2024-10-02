@@ -106,14 +106,10 @@
     curl
     git
     zsh
-    fish
   ];
 
   # Enable zsh globally
   programs.zsh.enable = true;
-
-  # Enable fish globally
-  programs.fish.enable = true;
 
   # Set zsh as the default login shell
   users.defaultUserShell = pkgs.zsh;

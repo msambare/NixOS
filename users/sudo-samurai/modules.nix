@@ -38,6 +38,7 @@
     ../../modules/virtualization
     ../../modules/whiteboarding
     ../../modules/x_programs
+    ../../modules/shell
   ];
 
 }

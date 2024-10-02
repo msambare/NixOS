@@ -11,10 +11,5 @@
     userName = "msambare";
     userEmail = "mangesh@sambare.in";
   };
-  # Add your custom aliases
-  pkgs.fish.aliases = {
-    ll = "ls -la";
-    gst = "git status";
-    .. = "cd ..";
-  };
+
 }
