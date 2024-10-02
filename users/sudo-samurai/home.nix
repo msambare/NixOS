@@ -11,4 +11,10 @@
     userName = "msambare";
     userEmail = "mangesh@sambare.in";
   };
+
+  # Add your custom aliases
+  programs.fish.aliases = {
+    ll = "ls -la";
+    .. = "cd ..";
+  };
 }
