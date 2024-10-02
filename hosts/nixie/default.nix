@@ -114,6 +114,9 @@
   # Set zsh as the default login shell
   users.defaultUserShell = pkgs.zsh;
 
+  # Enable fish globally
+  programs.fish.enable = true;
+
   # install and enable docker
   virtualisation.docker.enable = true;
 
