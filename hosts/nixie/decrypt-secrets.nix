@@ -15,11 +15,11 @@ in
 
     serviceConfig = {
       Environment = "SOPS_AGE_KEY_FILE=${agePrivateKeyFile}";  # Set the SOPS_AGE_KEY_FILE variable to point to the key
-      ExecStart = "${pkgs.sops}/bin/sops --decrypt ${homeDir}/nixos/secrets/secrets.enc.yaml > ${decryptedDir}/secrets.yaml";
+      ExecStart = "${pkgs.sops}/bin/sops --decrypt /etc/nixos/secrets/secrets.enc.yaml > ${decryptedDir}/secrets.yaml";
       ExecStartPost = ''
         ${pkgs.bash}/bin/bash -c 'chmod 600 ${decryptedDir}/secrets.yaml'
 
-        # Create WiFi password files dynamically from decrypted secrets
+        # Dynamically create WiFi password files from decrypted secrets
         echo "${builtins.getAttr "Dracarys5G" wifiPasswords}" > ${decryptedDir}/wpa_supplicant_Dracarys5G.conf
         echo "${builtins.getAttr "Dracarys5-1G" wifiPasswords}" > ${decryptedDir}/wpa_supplicant_Dracarys5-1G.conf
         echo "${builtins.getAttr "Dracarys2-4G" wifiPasswords}" > ${decryptedDir}/wpa_supplicant_Dracarys2-4G.conf
