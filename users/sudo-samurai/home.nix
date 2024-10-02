@@ -15,6 +15,5 @@
   # Add your custom aliases
   programs.fish.aliases = {
     ll = "ls -la";
-    .. = "cd ..";
   };
 }
