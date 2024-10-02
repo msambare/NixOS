@@ -55,7 +55,6 @@
         productivity = [ "atuin" "thefuck" "zoxide" "fd" ];
         remote_assistance = [ "anydesk" ];
         remote_servers = [ "filezilla" "termius" ];
-        shell = [ "fish" ];
         system_monitoring = [ "btop" "glances" "htop" "lsof" "nvtop" "virt-top" ];
         system_tools = [ "ethtool" "lm_sensors" "pciutils" "usbutils" ];
         terminal_multiplexers = [ "tmux" "zellij" ];
@@ -102,7 +101,6 @@
           inherit productivity;
           inherit remote_assistance;
           inherit remote_servers;
-          inherit shell;
           inherit system_monitoring;
           inherit system_tools;
           inherit terminal_multiplexers;
