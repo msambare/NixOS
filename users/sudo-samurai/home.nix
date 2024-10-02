@@ -12,4 +12,5 @@
     userEmail = "mangesh@sambare.in";
   };
 
+  programs.fish.enable = true;
 }
