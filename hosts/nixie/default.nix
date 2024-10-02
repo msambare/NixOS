@@ -94,65 +94,21 @@
   #  thunderbird
   ];
 
-  # Dynamically use SSH public keys and private keys from the decrypted secrets
-  let
-    # Load and parse the decrypted secrets file
-    secrets = builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml");
+  # Use the public keys for SSH access directly by inlining the parsed secrets
+  openssh.authorizedKeys.keys = [
+    (builtins.getAttr "publicKey" (builtins.head (builtins.filter (key: key.name == "id_rsa") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys)))
+    (builtins.getAttr "publicKey" (builtins.head (builtins.filter (key: key.name == "id_ed25519") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys)))
+  ];
 
-    # Extract the SSH keys from the secrets
-    sshKeys = secrets.sshKeys;
-
-    # Get the id_rsa and id_ed25519 key objects
-    idRsaKey = builtins.head (builtins.filter (key: key.name == "id_rsa") sshKeys);
-    idEd25519Key = builtins.head (builtins.filter (key: key.name == "id_ed25519") sshKeys);
-
-  in {
-    # Use the public keys for SSH access
-    # Use the dynamically retrieved public keys for SSH access
-      openssh.authorizedKeys.keys = let
-        # Load and parse the decrypted secrets file
-        secrets = builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml");
-
-        # Extract the SSH keys from the secrets
-        sshKeys = secrets.sshKeys;
-
-        # Get the id_rsa and id_ed25519 key objects
-        idRsaKey = builtins.head (builtins.filter (key: key.name == "id_rsa") sshKeys);
-        idEd25519Key = builtins.head (builtins.filter (key: key.name == "id_ed25519") sshKeys);
-      in [
-        idRsaKey.publicKey
-        idEd25519Key.publicKey
-      ];
-      idRsaKey.publicKey
-      idEd25519Key.publicKey
-    ];
-
-    # Dynamically place SSH private keys from decrypted secrets
-    extraFiles = let
-        # Place the SSH private keys from decrypted secrets
-        idRsaKey = builtins.head (builtins.filter (key: key.name == "id_rsa") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys);
-        idEd25519Key = builtins.head (builtins.filter (key: key.name == "id_ed25519") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys);
-      in {
-        ".ssh/id_rsa" = {
-          source = "/run/secrets/secrets.yaml";
-          content = idRsaKey.privateKey;
-          permissions = "0400";
-        };
-        ".ssh/id_ed25519" = {
-          source = "/run/secrets/secrets.yaml";
-          content = idEd25519Key.privateKey;
-          permissions = "0400";
-        };
-      ".ssh/id_rsa" = {
-        source = "/run/secrets/secrets.yaml";
-        content = idRsaKey.privateKey;
-        permissions = "0400";
-      };
-      ".ssh/id_ed25519" = {
-        source = "/run/secrets/secrets.yaml";
-        content = idEd25519Key.privateKey;
-        permissions = "0400";
-      };
+  # Dynamically place SSH private keys directly without using let blocks
+  extraFiles = {
+    ".ssh/id_rsa" = {
+      content = builtins.getAttr "privateKey" (builtins.head (builtins.filter (key: key.name == "id_rsa") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys));
+      permissions = "0400";
+    };
+    ".ssh/id_ed25519" = {
+      content = builtins.getAttr "privateKey" (builtins.head (builtins.filter (key: key.name == "id_ed25519") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys));
+      permissions = "0400";
     };
   };
 
