@@ -86,36 +86,43 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.sudo-samurai = {
-    isNormalUser = true;
-    description = "Mangesh Sambare";
-    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
+  isNormalUser = true;
+  description = "Mangesh Sambare";
+  extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
+  packages = with pkgs; [
+    kdePackages.kate
+  #  thunderbird
+  ];
 
-    # Dynamically use SSH public keys from the decrypted secrets
-    openssh.authorizedKeys.keys = let
-      secrets = builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml");
-      sshKeys = secrets.sshKeys;
-      idRsaKey = builtins.head (builtins.filter (key: key.name == "id_rsa") sshKeys);
-      idEd25519Key = builtins.head (builtins.filter (key: key.name == "id_ed25519") sshKeys);
-    in
-      [
-        idRsaKey.publicKey
-        idEd25519Key.publicKey
-      ];
+  # Dynamically use SSH public keys and private keys from the decrypted secrets
+  let
+    # Load and parse the decrypted secrets file
+    secrets = builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml");
+
+    # Extract the SSH keys from the secrets
+    sshKeys = secrets.sshKeys;
+
+    # Get the id_rsa and id_ed25519 key objects
+    idRsaKey = builtins.head (builtins.filter (key: key.name == "id_rsa") sshKeys);
+    idEd25519Key = builtins.head (builtins.filter (key: key.name == "id_ed25519") sshKeys);
+
+  in {
+    # Use the public keys for SSH access
+    openssh.authorizedKeys.keys = [
+      idRsaKey.publicKey
+      idEd25519Key.publicKey
+    ];
 
     # Dynamically place SSH private keys from decrypted secrets
     extraFiles = {
       ".ssh/id_rsa" = {
         source = "/run/secrets/secrets.yaml";
-        content = builtins.getAttr "privateKey" idRsaKey;
+        content = idRsaKey.privateKey;
         permissions = "0400";
       };
       ".ssh/id_ed25519" = {
         source = "/run/secrets/secrets.yaml";
-        content = builtins.getAttr "privateKey" idEd25519Key;
+        content = idEd25519Key.privateKey;
         permissions = "0400";
       };
     };
