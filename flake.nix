@@ -34,7 +34,7 @@
         archives = [ "gnutar" "p7zip" "unzip" "zip" "xz" ];
         audio = [ "audacity" ];
         backup = [ "borgbackup" "duplicity" "restic" "vorta" ];
-        cloud_programs = [ "awscli2" "insync" "rclone" ];
+        cloud_programs = [ "awscli2" "insync" "rclone" "maestral" ];
         command_line_programs = [ "fzf" "jq" "ncdu" "neofetch" "nerdfetch" "sshs" "tree" ];
         containerization = [ "docker-compose" ];
         development = [ "python312" "staruml" "sublime-merge" ];
