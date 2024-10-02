@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -49,23 +45,23 @@
   };
 
   # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.xdg-desktop-portal.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
+  services.xserver = {
     layout = "us";
-    variant = "";
+    xkbVariant = "";
   };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -75,79 +71,26 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.sudo-samurai = {
-  isNormalUser = true;
-  description = "Mangesh Sambare";
-  extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
-  packages = with pkgs; [
-    kdePackages.kate
-  #  thunderbird
-  ];
-
-  # Use the public keys for SSH access directly by inlining the parsed secrets
-  openssh.authorizedKeys.keys = [
-    (builtins.getAttr "publicKey" (builtins.head (builtins.filter (key: key.name == "id_rsa") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys)))
-    (builtins.getAttr "publicKey" (builtins.head (builtins.filter (key: key.name == "id_ed25519") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys)))
-  ];
-
-  # Dynamically place SSH private keys directly without using let blocks
-  extraFiles = {
-    ".ssh/id_rsa" = {
-      content = builtins.getAttr "privateKey" (builtins.head (builtins.filter (key: key.name == "id_rsa") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys));
-      permissions = "0400";
-    };
-    ".ssh/id_ed25519" = {
-      content = builtins.getAttr "privateKey" (builtins.head (builtins.filter (key: key.name == "id_ed25519") (builtins.fromJSON (builtins.readFile "/run/secrets/secrets.yaml")).sshKeys));
-      permissions = "0400";
-    };
+    isNormalUser = true;
+    description = "Mangesh Sambare";
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd" ];
+    packages = with pkgs; [
+      kdePackages.kate
+      firefox
+    ];
   };
-
-  # Reference the dynamically created WiFi password files
-  networking.wireless.networks = {
-    "Dracarys5G" = {
-      pskFile = "/run/secrets/wpa_supplicant_Dracarys5G.conf";
-    };
-    "Dracarys5-1G" = {
-      pskFile = "/run/secrets/wpa_supplicant_Dracarys5-1G.conf";
-    };
-    "Dracarys2-4G" = {
-      pskFile = "/run/secrets/wpa_supplicant_Dracarys2-4G.conf";
-    };
-    "Jio2-4G" = {
-      pskFile = "/run/secrets/wpa_supplicant_Jio2-4G.conf";
-    };
-    "Jio5G" = {
-      pskFile = "/run/secrets/wpa_supplicant_Jio5G.conf";
-    };
-    "BangBang2-4G" = {
-      pskFile = "/run/secrets/wpa_supplicant_BangBang2-4G.conf";
-    };
-    "BangBang5G" = {
-      pskFile = "/run/secrets/wpa_supplicant_BangBang5G.conf";
-    };
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     wget
     curl
@@ -155,16 +98,16 @@
     sops
   ];
 
-  # install and enable docker
-  virtualisation.docker.enable = true;
-
-  # run docker in rootless mode. Note that you cannot bind ports bwlow 1024
-  virtualisation.docker.rootless = {
+  # Enable Docker
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 
-  # libvirt configuration
+  # Enable libvirtd
   virtualisation.libvirtd = {
     enable = true;
     qemu = {
@@ -181,38 +124,19 @@
     };
   };
 
-  # allow nested virtualization
+  # Allow nested virtualization
   boot.extraModprobeConfig = "options kvm_intel nested=1";
 
-  # allowed insecre package
+  # Allowed insecure packages
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11" # logseq
     "openssl-1.1.1w" # sublime4
     "python-2.7.18.8" # xtrlock-pam
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # on your system were taken. It's perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
