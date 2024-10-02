@@ -88,12 +88,6 @@
       kdePackages.kate
     #  thunderbird
     ];
-    # Add your custom aliases
-    programs.fish.aliases = {
-      ll = "ls -la";
-      gst = "git status";
-      .. = "cd ..";
-    };
   };
 
   # Install firefox.
