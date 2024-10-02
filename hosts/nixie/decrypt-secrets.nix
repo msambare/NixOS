@@ -1,40 +1,47 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
-  user = builtins.head (lib.filter (u: u.name != "root") (builtins.attrValues config.users.users));
-  homeDir = user.home;
-  agePrivateKeyFile = "${homeDir}/.sops/age/keys.txt";
   decryptedDir = "/run/secrets";
+  secretsFile = ./secrets.enc.yaml;
+  keys = [ "/etc/ssh/ssh_host_ed25519_key" ];
 in
 {
   sops = {
-    defaultSopsFile = ./secrets/secrets.enc.yaml;
-    age.keyFile = agePrivateKeyFile;
+    defaultSopsFile = secretsFile;
+    age.sshKeyPaths = keys;
   };
 
   sops.secrets = {
-    "sshKeys/id_rsa" = {
-      path = "${homeDir}/.ssh/id_rsa";
-      owner = user.name;
-      mode = "0400";
+    "ssh/id_ed25519" = {
+      path = "${decryptedDir}/id_ed25519";
+      mode = "0600";
+      owner = config.users.users.sudo-samurai.name;
     };
-    "sshKeys/id_ed25519" = {
-      path = "${homeDir}/.ssh/id_ed25519";
-      owner = user.name;
-      mode = "0400";
+    "ssh/id_ed25519.pub" = {
+      path = "${decryptedDir}/id_ed25519.pub";
+      mode = "0644";
+      owner = config.users.users.sudo-samurai.name;
     };
+  } // (builtins.mapAttrs (name: value: {
+    path = "${decryptedDir}/wpa_supplicant_${name}.conf";
+    mode = "0600";
+    owner = "root";
+  }) (builtins.fromJSON (builtins.readFile secretsFile)).wifi_passwords);
+
+  networking.wireless = {
+    enable = true;
+    userControlled.enable = true;
+    networks = builtins.mapAttrs (name: value: {
+      psk = "@${decryptedDir}/wpa_supplicant_${name}.conf@";
+    }) (builtins.fromJSON (builtins.readFile secretsFile)).wifi_passwords;
   };
 
-  users.users.${user.name}.openssh.authorizedKeys.keys = [
-    (builtins.readFile config.sops.secrets."sshKeys/id_rsa".path)
-    (builtins.readFile config.sops.secrets."sshKeys/id_ed25519".path)
-  ];
-
-  networking.wireless.networks = builtins.mapAttrs (name: value: {
-    pskFile = config.sops.secrets."wifiPasswords/${name}".path;
-  }) (builtins.fromJSON (builtins.readFile config.sops.secrets."wifiPasswords".path));
-
-  sops.secrets = builtins.mapAttrs (name: value: {
-    path = "${decryptedDir}/wpa_supplicant_${name}.conf";
-  }) (builtins.fromJSON (builtins.readFile config.sops.secrets."wifiPasswords".path));
+  systemd.services.wpa_supplicant.preStart = ''
+    ${lib.concatMapStrings (name: ''
+      if [ ! -f "${decryptedDir}/wpa_supplicant_${name}.conf" ]; then
+        echo "Error: ${decryptedDir}/wpa_supplicant_${name}.conf not found"
+        exit 1
+      fi
+    '') (builtins.attrNames (builtins.fromJSON (builtins.readFile secretsFile)).wifi_passwords)}
+  '';
 }
