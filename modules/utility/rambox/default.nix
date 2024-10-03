@@ -6,7 +6,6 @@
 
     config = lib.mkIf config.rambox.enable  {
         home-manager.users.${username} = { pkgs-unstable, ... }: {
-            pkgs-unstable.config.allowUnfree = true;
             home.packages = with pkgs-unstable; [ rambox ];
         };
     };
