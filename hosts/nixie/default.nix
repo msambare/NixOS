@@ -95,7 +95,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  # pkgs_unstable.config.allowUnfree = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes"];
