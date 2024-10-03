@@ -82,7 +82,8 @@
   users.users.sudo-samurai = {
     isNormalUser = true;
     description = "Mangesh Sambare";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "libvirtd"];
+    shell = pkgs.fish;
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -101,10 +102,55 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
     wget
     curl
     git
+    zsh
+  ];
+
+  # Enable zsh globally
+  programs.zsh.enable = true;
+
+  # Set zsh as the default login shell
+  users.defaultUserShell = pkgs.zsh;
+
+  # Enable fish globally
+  programs.fish.enable = true;
+
+  # install and enable docker
+  virtualisation.docker.enable = true;
+
+  # run docker in rootless mode. Note that you cannot bind ports bwlow 1024
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
+  # libvirt configuration
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_kvm;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [(pkgs.OVMF.override {
+          secureBoot = true;
+          tpmSupport = true;
+        }).fd];
+      };
+    };
+  };
+
+  # allow nested virtualization
+  boot.extraModprobeConfig = "options kvm_intel nested=1";
+
+  # allowed insecre package
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11" # logseq
+    "openssl-1.1.1w" # sublime4
+    "python-2.7.18.8" # xtrlock-pam
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -133,5 +179,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }

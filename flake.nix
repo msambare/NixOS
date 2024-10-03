@@ -22,7 +22,7 @@
   } : {
   
     nixosConfigurations = {
-      nixie = let
+      skynet = let
         system = "x86_64-linux";
         username = "sudo-samurai";
         full_name = "Mangesh Sambare";
@@ -120,7 +120,7 @@
           inherit specialArgs;
           
           modules = [
-            ./hosts/nixie
+            ./hosts/skynet
             ./users/${username}/modules.nix
             
             home-manager.nixosModules.home-manager
