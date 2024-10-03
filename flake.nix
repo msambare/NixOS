@@ -26,7 +26,7 @@
       nixie = let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-        pkgs_unstable = nixpkgs_unstable.legacyPackages.${system};
+        pkgs_unstable = nixpkgs-unstable.legacyPackages.${system};
         username = "sudo-samurai";
         full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
