@@ -66,7 +66,6 @@
 
         specialArgs = {
           inherit system;
-          inherit pkgs_unstable;
           inherit username;
           inherit full_name;
           inherit timezone;
