@@ -25,8 +25,14 @@
     nixosConfigurations = {
       nixie = let
         system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.${system};
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        pkgs = nixpkgs.legacyPackages.${system}
+        {
+          config.allowUnfree = true;
+        };
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system}
+        {
+          config.allowUnfree = true;
+        };
         username = "sudo-samurai";
         full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
