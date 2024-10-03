@@ -17,7 +17,7 @@
   } : {
   
     nixosConfigurations = {
-      nixie = let
+      skynet = let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
         username = "sudo-samurai";
@@ -116,7 +116,7 @@
           inherit specialArgs;
           
           modules = [
-            ./hosts/nixie
+            ./hosts/skynet
             ./users/${username}/modules.nix
             
             home-manager.nixosModules.home-manager
