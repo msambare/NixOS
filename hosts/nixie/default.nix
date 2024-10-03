@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, nixpkgs-unstable, ... }:
 
 {
   imports =
@@ -95,7 +95,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  pkgs-unstable.config.allowUnfree = true;
+  nixpkgs-unstable.config.allowUnfree = true;
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes"];
