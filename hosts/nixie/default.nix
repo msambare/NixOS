@@ -154,6 +154,11 @@
     "python-2.7.18.8" # xtrlock-pam
   ];
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)
+  [
+   "rambox"
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
