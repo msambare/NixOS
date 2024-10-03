@@ -28,7 +28,7 @@
         pkgs = nixpkgs.legacyPackages.${system}
         {
           config.allowUnfree = true;
-        };        ;
+        };
         pkgs-unstable = nixpkgs-unstable.legacyPackages.${system}
         {
           config.allowUnfree = true;
