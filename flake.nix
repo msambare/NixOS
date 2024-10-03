@@ -27,10 +27,6 @@
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
         pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-        config = {
-          allowUnfree = true;
-          allowUnfreePredicate = _: true;
-        };
         username = "sudo-samurai";
         full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
