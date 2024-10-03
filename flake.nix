@@ -26,7 +26,7 @@
       nixie = let
         system = "x86_64-linux";
         pkgs = nixpkgs.legacyPackages.${system};
-        nixpkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
         username = "sudo-samurai";
         full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
@@ -73,7 +73,7 @@
 
         specialArgs = {
           inherit system;
-          inherit nixpkgs-unstable;
+          inherit pkgs-unstable;
           inherit username;
           inherit full_name;
           inherit timezone;
