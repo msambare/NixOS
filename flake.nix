@@ -29,10 +29,10 @@
         {
           config.allowUnfree = true;
         };
-        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system}
-        {
-          config.allowUnfree = true;
-        };
+        pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+        # {
+        #   config.allowUnfree = true;
+        # };
         username = "sudo-samurai";
         full_name = "Mangesh Sambare";
         timezone = "Asia/Kolkata";
