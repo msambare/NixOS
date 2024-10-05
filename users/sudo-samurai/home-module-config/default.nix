@@ -2,6 +2,7 @@
 
   imports = [
     # Example: ./alacritty.nix
+    ./atuin.nix
   ];
 
 }

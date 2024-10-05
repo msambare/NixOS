@@ -48,7 +48,7 @@
         personal_knowledge_management = [ "logseq" "notion-app-enhanced" ];
         photo_tools = [ "darktable" "rawtherapee" ];
         privacy = [ "kleopatra" "age" "rage" ];
-        productivity = [ "atuin" "thefuck" "zoxide" "fd" ];
+        productivity = [ "thefuck" "zoxide" "fd" ];
         remote_assistance = [ "anydesk" ];
         remote_servers = [ "filezilla" "termius" ];
         system_monitoring = [ "btop" "glances" "htop" "lsof" "nvtop" "virt-top" ];
