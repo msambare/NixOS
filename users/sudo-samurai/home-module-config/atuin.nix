@@ -6,4 +6,5 @@
       # sync_address = "https://majiy00-shell.fly.dev";
     };
   };
+  programs.atuin.enableFishIntegration = true;
 }
